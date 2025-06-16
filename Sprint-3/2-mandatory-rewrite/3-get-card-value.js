@@ -1,16 +1,18 @@
 function getCardValue(card) {
   // replace with your code from key-implement
-  if (card === "A♠") {
-    return 11;
+  let rank = card[0];
+  if (card.length > 2) {
+    rank = card.slice(0, card.length - 1);
   }
-  if (card >= 2 || card <= 10) {
-    return "2 - 9";
-  }
-  if (["J", "Q", "K"].includes(card)) {
-    return "Face Card";
-  }
-  if (card[0] === "A") {
-    return "Ace Card";
-  }
+
+  if (rank === "A") return 11;
+  if (rank >= 2 && rank <= 10 && ["♠", "♥", "♦", "♣"].includes(card.slice(-1)))
+    return parseInt(rank);
+  if (
+    ["J", "Q", "K"].includes(rank) &&
+    ["♠", "♥", "♦", "♣"].includes(card.slice(-1))
+  )
+    return 10;
+  throw new Error("Invalid card rank.");
 }
 module.exports = getCardValue;

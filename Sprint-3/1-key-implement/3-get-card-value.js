@@ -14,9 +14,12 @@ function getCardValue(card) {
   }
 
   if (rank === "A") return 11;
-  if (rank >= 2 && rank <= 10 && ["♠", "♥"].includes(card.slice(-1)))
+  if (rank >= 2 && rank <= 10 && ["♠", "♥", "♦", "♣"].includes(card.slice(-1)))
     return rank;
-  if (["J", "Q", "K"].includes(rank) && ["♠", "♥"].includes(card.slice(-1)))
+  if (
+    ["J", "Q", "K"].includes(rank) &&
+    ["♠", "♥", "♦", "♣"].includes(card.slice(-1))
+  )
     return 10;
   throw new Error("Invalid card rank.");
 }

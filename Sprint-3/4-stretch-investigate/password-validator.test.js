@@ -18,7 +18,6 @@ const isValidPassword = require("./password-validator");
 test("password has at least 5 characters", () => {
   // Arrange
   const password = "1245";
-  const passwordArray = ["D@ra3", "BmW.7", "75&Mn"];
   // Act
   const result = isValidPassword(password);
   // Assert
@@ -56,4 +55,20 @@ test("password Must not be any previous password in the passwords array", () => 
   const result = isValidPassword(password);
   // Assert
   expect(result).toEqual(false);
+});
+test("password has more than 5 characters", () => {
+  // Arrange
+  const password = "1$aF562qx&";
+  // Act
+  const result = isValidPassword(password);
+  // Assert
+  expect(result).toEqual(true);
+});
+test("password is encludes last password not the same last password", () => {
+  // Arrange
+  const password = "BmW.7n";
+  // Act
+  const result = isValidPassword(password);
+  // Assert
+  expect(result).toEqual(true);
 });

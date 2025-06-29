@@ -8,48 +8,35 @@ const getOrdinalNumber = require("./get-ordinal-number");
 // When the number is 1,
 // Then the function should return "1st"
 
-test("should return '1st' for 1", () => {
+test("'st' for numbers ending in 1 but not ending in 11", () => {
   expect(getOrdinalNumber(1)).toEqual("1st");
-});
-test("should return '21st' for 21", () => {
   expect(getOrdinalNumber(21)).toEqual("21st");
 });
-test("should return '11th' for 11", () => {
-  expect(getOrdinalNumber(11)).toEqual("11th");
-});
-test("should return '2nd' for 2", () => {
+
+test("'nd' for numbers ending in 2 but not ending in 12", () => {
   expect(getOrdinalNumber(2)).toEqual("2nd");
-});
-test("should return '32nd' for 32", () => {
   expect(getOrdinalNumber(32)).toEqual("32nd");
 });
-test("should return '12th' for 12", () => {
-  expect(getOrdinalNumber(12)).toEqual("12th");
-});
-test("should return '13th' for 13", () => {
-  expect(getOrdinalNumber(13)).toEqual("13th");
-});
-test("should return '3rd' for 3", () => {
+
+test("'rd' for numbers ending in 3 but not ending in 13", () => {
   expect(getOrdinalNumber(3)).toEqual("3rd");
-});
-test("should return '23rd' for 23", () => {
   expect(getOrdinalNumber(23)).toEqual("23rd");
-});
-test("should return '4th' for 4", () => {
-  expect(getOrdinalNumber(4)).toEqual("4th");
-});
-test("should return '24th' for 24", () => {
-  expect(getOrdinalNumber(24)).toEqual("24th");
-});
-test("should return '103rd' for 103", () => {
   expect(getOrdinalNumber(103)).toEqual("103rd");
 });
-test("should return '100th' for 100", () => {
+
+test("'th' for numbers ending in 11 , 12 and 13 ", () => {
+  expect(getOrdinalNumber(11)).toEqual("11th");
+  expect(getOrdinalNumber(12)).toEqual("12th");
+  expect(getOrdinalNumber(13)).toEqual("13th");
+});
+
+test("'th' for any other numbers ", () => {
+  expect(getOrdinalNumber(4)).toEqual("4th");
+  expect(getOrdinalNumber(24)).toEqual("24th");
   expect(getOrdinalNumber(100)).toEqual("100th");
-});
-test("should return '10th' for 10", () => {
   expect(getOrdinalNumber(10)).toEqual("10th");
-});
-test("should return '111th' for 111", () => {
   expect(getOrdinalNumber(111)).toEqual("111th");
 });
+
+ 
+

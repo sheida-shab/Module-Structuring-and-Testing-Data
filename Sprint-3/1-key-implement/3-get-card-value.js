@@ -9,18 +9,17 @@
 // just make one change at a time -- don't rush -- programmers are deep and careful thinkers
 function getCardValue(card) {
   let rank = card[0];
+  if (["♠", "♥", "♦", "♣"].includes(card.slice(-1))){
   if (card.length > 2) {
     rank = card.slice(0, card.length - 1);
   }
 
   if (rank === "A") return 11;
-  if (rank >= 2 && rank <= 10 && ["♠", "♥", "♦", "♣"].includes(card.slice(-1)))
+  if (rank >= 2 && rank <= 10 )
     return rank;
-  if (
-    ["J", "Q", "K"].includes(rank) &&
-    ["♠", "♥", "♦", "♣"].includes(card.slice(-1))
-  )
+  if (["J", "Q", "K"].includes(rank))
     return 10;
+}  
   throw new Error("Invalid card rank.");
 }
 

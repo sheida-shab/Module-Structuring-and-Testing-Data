@@ -30,4 +30,4 @@ console.log(find("code your future", "z"));
 //To check all the characters in str one by one
 
 // d) What is the condition index < str.length used for?
-//To go through and check the last character of str
+//It is Used for checking every single character of string "str" from first to end order.

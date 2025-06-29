@@ -1,21 +1,16 @@
-function passwordValidator(password) {
+function passwordValidator(password, previousPasswords =[]) {
   //password has at least 5 characters
-  if (password.length >= 5) {
+  if (password.length < 5) {return false;}
     //password has at least one English uppercase letter (a-z)
-    if (containUpperCase(password)) {
+  if (!containUpperCase(password)) {return false;}
       //password has at least one English lowercase letter (a-z)
-      if (containLowerCase(password)) {
+  if (!containLowerCase(password)) {return false;}
         //password has at least one of the following non-alphanumeric symbols: (!, #, $, %, ., *, &)
-        if (containSymbols(password)) {
+  if (!containSymbols(password)) {return false;}
           //password Must not be any previous password in the passwords array
-          if (checkPreviousPass(password)) {
-            return true;
-          }
-        }
-      }
-    }
-  }
-  return false;
+  if (!checkPreviousPass(password, previousPasswords)) {return false; }
+  return true;
+  
 }
 
 function containUpperCase(str) {
@@ -29,9 +24,8 @@ function containLowerCase(str) {
 function containSymbols(str) {
   return /[!#$%.*&]/.test(str);
 }
-function checkPreviousPass(str) {
-  const passwordArray = ["D@ra3", "BmW.7", "75&Mn"];
-  return !passwordArray.includes(str);
+function checkPreviousPass(str, previousPasswords) {
+    return !previousPasswords.includes(str);
 }
 
 module.exports = passwordValidator;

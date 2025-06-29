@@ -31,5 +31,5 @@ test("should identify Straight angle  (180°)", () => {
 // When the angle is greater than 180 degrees and less than 360 degrees,
 // Then the function should return "node 1 angle"
 test("should identify node 1 angle greater than (180°)  and less than (360°)", () => {
-  expect(getAngleType(220)).toEqual("node 1 angle");
+  expect(getAngleType(220)).toEqual("Reflex angle");
 });

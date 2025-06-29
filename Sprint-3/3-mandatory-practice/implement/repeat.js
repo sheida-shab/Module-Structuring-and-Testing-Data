@@ -1,7 +1,7 @@
 function repeat(str, num) {
   let repeatedStr = "";
   if (num < 0) {
-    throw new Error("Count must be non‑negative");
+    throw new Error("negative counts are not valid");
   }
   if (num == 0) {
     return "";

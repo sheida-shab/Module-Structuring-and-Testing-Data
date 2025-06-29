@@ -50,3 +50,6 @@ test("should return '100th' for 100", () => {
 test("should return '10th' for 10", () => {
   expect(getOrdinalNumber(10)).toEqual("10th");
 });
+test("should return '111th' for 111", () => {
+  expect(getOrdinalNumber(111)).toEqual("111th");
+});

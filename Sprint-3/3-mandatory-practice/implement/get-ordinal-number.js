@@ -1,5 +1,6 @@
 function getOrdinalNumber(num) {
-  if ([11, 12, 13].includes(num)) {
+ 
+  if (["11", "12", "13"].includes(num.toString().slice(-2))) {
     return num.toString() + "th";
   }
   let lastDigit = num.toString().slice(-1);

@@ -1,23 +1,18 @@
 function getOrdinalNumber(num) {
- 
-  if (["11", "12", "13"].includes(num.toString().slice(-2))) {
-    return num.toString() + "th";
-  }
   let lastDigit = num.toString().slice(-1);
-  if (lastDigit === "1") {
-    return num.toString() + "st";
-  }
-  if (lastDigit === "0") {
-    return num.toString() + "th";
-  }
-  if (lastDigit === "2") {
-    return num.toString() + "nd";
-  }
-  if (lastDigit === "3") {
-    return num.toString() + "rd";
-  }
-  if (["4", "5", "6", "7", "8", "9"].includes(lastDigit)) {
-    return num.toString() + "th";
+  let last2Digit = num.toString().slice(-2);
+  let numToString = num.toString();
+
+  if (["11", "12", "13"].includes(last2Digit)) {
+    return numToString + "th";
+  } else if (lastDigit === "1") {
+    return numToString + "st";
+  } else if (lastDigit === "2") {
+    return numToString + "nd";
+  } else if (lastDigit === "3") {
+    return numToString + "rd";
+  } else {
+    return numToString + "th";
   }
 }
 

@@ -7,19 +7,21 @@
 // complete the rest of the tests and cases
 // write one test at a time, and make it pass, build your solution up methodically
 // just make one change at a time -- don't rush -- programmers are deep and careful thinkers
+
 function getCardValue(card) {
   let rank = card[0];
-  if (["♠", "♥", "♦", "♣"].includes(card.slice(-1))){
-  if (card.length > 2) {
-    rank = card.slice(0, card.length - 1);
-  }
 
-  if (rank === "A") return 11;
-  if (["2", "3", "4", "5", "6", "7", "8", "9", "10"].includes(rank) )
-    return rank;
-  if (["J", "Q", "K"].includes(rank))
-    return 10;
-}  
+  if (["♠", "♥", "♦", "♣"].includes(card.slice(-1))){
+      if (card.length > 2) {
+        rank = card.slice(0, card.length - 1);
+      }
+      if (rank === "A") return 11;
+      if (["2", "3", "4", "5", "6", "7", "8", "9", "10"].includes(rank.toString()) )
+        return rank;
+      if (["J", "Q", "K"].includes(rank))
+        return 10;
+  }  
+
   throw new Error("Invalid card rank.");
 }
 
